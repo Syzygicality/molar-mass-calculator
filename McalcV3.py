@@ -1,15 +1,14 @@
-import json
+from table import table
 
 def calculate(element, count):
-    with open("table.json", "r") as file:
-        periodic_table = json.load(file)
-        valid_elements = list(periodic_table.keys())
-        if element not in valid_elements:
-            return None
-        if count == "":
-            count = 1 
-        molar_mass = periodic_table[element]
-        return molar_mass * int(count)
+    periodic_table = table()
+    valid_elements = list(periodic_table.keys())
+    if element not in valid_elements:
+        return None
+    if count == "":
+        count = 1 
+    molar_mass = periodic_table[element]
+    return molar_mass * int(count)
 
 def check(chemical, coefficient):
     element, count = "", ""
